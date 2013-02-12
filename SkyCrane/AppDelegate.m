@@ -131,7 +131,7 @@
 - (void) lockDB
 {
   int seconds = 0;
-  while (seconds < 90) {
+  while (seconds < 120) {
     if ([lockDBOperation isCancelled]) { return;}
     sleep(1);
     seconds++;
@@ -154,7 +154,7 @@
 - (void) clearClipboard
 {
   int seconds = 0;
-  while (seconds < 45) {
+  while (seconds < 60) {
     if ([clearClipboardOperation isCancelled]) { return;}
     sleep(1);
     seconds++;

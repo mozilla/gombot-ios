@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Mozilla. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
@@ -108,15 +109,19 @@
 #pragma mark - Cell Menus
 -(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
 {
+  AppDelegate* myApp = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+  
   UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   if (cell.detailTextLabel.text && ![cell.detailTextLabel.text isEqual:@""])
   {
     [gpBoard setString:cell.detailTextLabel.text];
+    [myApp setLastCopyValue:cell.detailTextLabel.text];
 	}
   else
   {
     [gpBoard setString:cell.textLabel.text];
+    [myApp setLastCopyValue:cell.textLabel.text];
 	}
 }
 
