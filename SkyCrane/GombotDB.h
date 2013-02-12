@@ -8,6 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+//necessary for keychain
+#ifdef DEVSERVER
+#define _HOST @"dev.tobmog.org"
+#define _SCHEME @"http"
+#define _PORTSTRING @"80"
+#define _PORT @80
+#define _TIMESTAMP_PATH @"/api/v1/payload/timestamp"
+#define _PAYLOAD_PATH @"/api/v1/payload"
+#else
+#define _HOST @"gombot.org"
+#define _SCHEME @"https"
+#define _PORTSTRING @"443"
+#define _PORT @443
+#define _TIMESTAMP_PATH @"/api/v1/payload/timestamp"
+#define _PAYLOAD_PATH @"/api/v1/payload"
+#endif
+
 //for storing fou different keys in keychain
 #define _AUTHPATH @"/auth_key"
 #define _AESPATH @"/aes_key"

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Mozilla. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "PINViewController.h"
 #import "SiteViewController.h"
 #import "GombotDB.h"
@@ -126,10 +127,12 @@
   redon = [UIImage imageNamed: @"redlight.png"];
   redoff = [UIImage imageNamed: @"redlightoff.png"];
 
-	// Do any additional setup after loading the view, typically from a nib.
   pinAttempt[0] = pinAttempt[1] = pinAttempt[2] = pinAttempt[3] = nextDigit = 0;
   failedAttempts = 0;
-    
+  
+  AppDelegate* myApp = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+  
+  [myApp setPinControl:self]; 
 }
 
 
@@ -141,10 +144,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if ([[segue identifier] isEqualToString:@"Unlock"]) {
+//  if ([[segue identifier] isEqualToString:@"Unlock"]) {
 //    SiteViewController* siteTable = (SiteViewController*)[segue destinationViewController];
 //    siteTable.rawSiteList =  [GombotDB getSites];
-  }
+//  }
 }
 
 @end

@@ -14,25 +14,6 @@
 #import "NSString+Base64.h"
 
 
-//#define _GOMBOT_URL_TEMPORARY @"https://dl.dropbox.com/u/169445/gombotdata"
-
-//necessary for keychain
-#ifdef DEVSERVER
-#define _HOST @"dev.tobmog.org"
-#define _SCHEME @"http"
-#define _PORTSTRING @"80"
-#define _PORT @80
-#define _TIMESTAMP_PATH @"/api/v1/payload/timestamp"
-#define _PAYLOAD_PATH @"/api/v1/payload"
-#else
-#define _HOST @"gombot.org"
-#define _SCHEME @"https"
-#define _PORTSTRING @"443"
-#define _PORT @443
-#define _TIMESTAMP_PATH @"/api/v1/payload/timestamp"
-#define _PAYLOAD_PATH @"/api/v1/payload"
-#endif
-
 
 #define LOCAL_DATA_FILE @"gombotdata"
 

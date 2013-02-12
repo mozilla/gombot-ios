@@ -43,6 +43,8 @@
 @property IBOutlet UIImageView* fail1;
 @property IBOutlet UIImageView* fail2;
 
+- (void) unlock;
+
 
 - (IBAction) numEnter:(id)sender;
 @end

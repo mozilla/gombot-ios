@@ -7,11 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PINViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
   NSTimer* dataRefreshTimer;
+  NSString* lastCopy;
+  
+  UIBackgroundTaskIdentifier backgroundUpdateTask;
+  
+  NSOperationQueue *backgroundQueue;
+  NSInvocationOperation *clearClipboardOperation;
+  NSInvocationOperation *lockDBOperation;
+  PINViewController* pinController;
+  BOOL needPinOnWake;
 }
+
+- (void) setLastCopyValue: (NSString*)clipContents;
+- (void) setPinControl: (PINViewController*)pin;
 
 @property (strong, nonatomic) UIWindow *window;
 

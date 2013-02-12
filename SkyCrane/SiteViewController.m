@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Mozilla. All rights reserved.
 //
 
+#import"AppDelegate.h"
 #import "SiteViewController.h"
 #import "LaunchCell.h"
 #import "DetailViewController.h"
@@ -199,6 +200,10 @@
   //put password on the pasteboard
   UIPasteboard *board = [UIPasteboard generalPasteboard];
   [board setString:selectedCell.site.pass];
+
+  AppDelegate* myApp = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+  
+  [myApp setLastCopyValue:selectedCell.site.pass];
 
   //launch to the site
   NSURL *url = [NSURL URLWithString:selectedCell.site.url];
